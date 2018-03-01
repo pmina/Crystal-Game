@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+  
+    <div class ="container">
+
+        <div class ="row">
+            <div class ="col-lg-12">
+
+                <div class="jumbotron">
+                    <h1 class="display-4">Crystal Collector</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class ="row">
+            <div class ="col-lg-12 instructions">
+                <h3><center>Here's how you play the game</center></h3><br>
+                <ol>
+                    <li>You will be given a random number at the start of the game.</li>
+                    <li>There are four crystals below.</li>
+                        <ul>
+                            <li><font color="blue">Blue</font></li>
+                            <li><font color="red">Red</font></li>
+                            <li><font color="yellow">Yellow</font></li>
+                            <li><font color="green">Green</font></li>
+                        </ul>
+                    <li>By clicking on a crystal, you will add a specific amount of points to your total score.</li>
+                    <li>You win the game by matching your total score to the random number.</li>
+                    <li>You lose the game if your total score goes above the random number.</li>
+                    <li>The value of each crystal is hidden from you util you click on it.</li>
+                    <li>Each time when the game starts, the game will change the values of each crystal.</li>
+                </ol>
+            </div>
+        </div>
+        <br>
+        <div class ="row">
+            <div class ="col-lg-4 numberToGet">
+                <h2> Number To Get: 
+                    <span id="randomNumber"></span>
+                </h2>
+            </div>
+            <div class ="col-lg-4 winsAndLosses">
+                <h2>
+                    Wins:
+                    <span id= "numberWins"></span>
+                    <br>
+                    Losses: 
+                    <span id= "numberLosses"></span>
+                </h2>
+            </div>
+        </div>
+        <br><br>
+        <div class= "row">
+            <div class="col-lg-1 gems">
+                <img src="assets/images/blue.png" id="one" alt="Blue Gem">
+            </div>
+            <div class="col-lg-1 gems">
+                <img src="assets/images/green.png" id="two" alt="Green Gem">
+            </div>
+            <div class="col-lg-1 gems">
+                <img src="assets/images/red.png" id="three" alt="Red Gem">
+            </div>
+            <div class="col-lg-1 gems">
+                <img src="assets/images/yellow.png" id="four" alt="Yellow Gem">
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-lg-12 userTotal">
+                <h2>Your total score is:
+                    <span id="finalTotal"></span>
+                </h2>
+            </div>
+        </div>
+        <br><br>
+
+    </div>
+
+    <div class="numberToGet">
+            <h2> Number To Get: 
+                <span id="randomNumber"></span>
+            </h2>
+        </div>
+<script>
+
+
+        var random = Math.floor(Math.random() * 101 + 19);
+            console.log(random)
+            $("#randomNumber").text(random);
+
+
+        var num1 = Math.floor(Math.random()*11+1);
+        var num2 = Math.floor(Math.random()*11+1);
+        var num3 = Math.floor(Math.random()*11+1);
+        var num4 = Math.floor(Math.random()*11+1);
+
+
+        var userTotal = 0;
+        var wins = 0;
+        var losses = 0;
+
+        $("#numberWins").text(wins);
+        $("#numberLosses").text(losses);
+
+
+        var yayy = function(){
+            alert("Congrats, you won!");
+            wins++;
+            $("#numberWins").text(wins);
+            ;
+        }
+
+        var loser = function(){
+            alert("You lose!");
+            losses++;
+            $("#numberLosses").text(losses);
+            
+        }
+
+        $('#one').on ('click', function(){
+            userTotal = userTotal + num1;
+            console.log("New userTotal= " + userTotal);
+            $('#finalTotal').text(userTotal); 
+                if (userTotal == random){
+                yayy();
+                }
+                else if ( userTotal > random){
+                loser();
+                }   
+        })
+
+        $('#two').on ('click', function(){
+            userTotal = userTotal + num2;
+            console.log("New userTotal= " + userTotal);
+            $('#finalTotal').text(userTotal); 
+                if (userTotal == random){
+                yayy();
+                }
+                else if ( userTotal > random){
+                loser();
+                }   
+        })
+
+        $('#three').on ('click', function(){
+            userTotal = userTotal + num3;
+            console.log("New userTotal= " + userTotal);
+            $('#finalTotal').text(userTotal); 
+                if (userTotal == random){
+                yayy();
+                }
+                else if ( userTotal > random){
+                loser();
+                }   
+        })
+
+        $('#four').on ('click', function(){
+            userTotal = userTotal + num4;
+            console.log("New userTotal= " + userTotal);
+            $('#finalTotal').text(userTotal); 
+                if (userTotal == random){
+                yayy();
+                }
+                else if ( userTotal > random){
+                loser();
+                }   
+        })
+
+</script>
+</body>
+</html>
