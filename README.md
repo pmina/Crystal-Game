@@ -1,4 +1,4 @@
-https://pmina.github.io/week-4-game/
+https://pmina.github.io/Crystal-Game/
 
 Crystal Collector
 
